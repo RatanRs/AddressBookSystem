@@ -1,4 +1,5 @@
 package com.bridgelabz;
+
 /***
  * 
  * @author Admin
@@ -8,13 +9,14 @@ package com.bridgelabz;
 public class Contact {
 
 	private String first_Name;
-    private String last_Name;
+	private String last_Name;
 	private String address;
 	private String city;
 	private String state;
 	private int zip;
 	private String phone_Number;
 	private String email;
+
 	/***
 	 * 
 	 * @return
