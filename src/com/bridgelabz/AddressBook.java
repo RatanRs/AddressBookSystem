@@ -1,35 +1,38 @@
 package com.bridgelabz;
 
+import java.util.Scanner;
+/***
+ * 
+ * @author Admin
+ *
+ */
 public class AddressBook {
-	String first_Name;
-	String last_Name;
-	String address;
-	String city;
-	String state;
-	int zip;
-	String phone_Number;
-	String email;
 
-	/*
-	 * Created Constractor
-	 */
-	public AddressBook(String first_Name, String last_Name, String address, String city, String state, int zip,
-			String phone_Number, String email) {
-		this.first_Name = first_Name;
-		this.last_Name = last_Name;
-		this.address = address;
-		this.city = city;
-		this.state = state;
-		this.zip = zip;
-		this.phone_Number = phone_Number;
-		this.email = email;
+	Scanner input = new Scanner(System.in);
+	Contact newPerson = new Contact();
+/*
+ * Created Method To add new Contact details
+ */
+	public void getAddNewContact() {
+		System.out.println("Enter your First_Name");
+		newPerson.setFirst_Name(input.next());
+		System.out.println("Enter your Last_Name");
+		newPerson.setLast_Name(input.next());
+		System.out.println("Enter your Address");
+		newPerson.setAddress(input.next());
+		System.out.println("Enter your City ");
+		newPerson.setCity(input.next());
+		System.out.println("Enter your State");
+		newPerson.setState(input.next());
+		System.out.println("Enter your Zip code");
+		newPerson.setZip(input.nextInt());
+		System.out.println("Enter your Phone_Number");
+		newPerson.setPhone_Number(input.next());
+		System.out.println("Enter your EmailID");
+		newPerson.setEmail(input.next());
 	}
 
-	@Override
-	public String toString() {
-		return "AddressBook= [first_Name=" + first_Name + ", \nlast_Name=" + last_Name + ",\naddress=" + address
-				+ ", \ncity=" + city + ", \nstate=" + state + ", \nzip=" + zip + ", \nphone_Number=" + phone_Number
-				+ ", \nemail=" + email + "]";
+	public void showContact() {
+		System.out.println(newPerson.toString());
 	}
-
 }
