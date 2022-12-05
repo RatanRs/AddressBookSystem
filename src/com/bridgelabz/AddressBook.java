@@ -40,7 +40,9 @@ public class AddressBook {
 		System.out.println();
 		System.out.println("Contact added");
 	}
-
+/**
+ * Created method to edit contact details
+ */
 	public void editContact() {
 		System.out.println("Enter contact's First Name you want to edit: ");
 		String searchName = input.next();
@@ -61,26 +63,28 @@ public class AddressBook {
 				System.out.println("Enter your Phone_Number");
 				newPerson.setPhone_Number(input.next());
 				System.out.println("Enter your EmailID");
-			}
-			else {
-				 System.out.println("Contact not found with this name ");
+			} else {
+				System.out.println("Contact not found with this name ");
 			}
 		}
 	}
-	public void deleteContact(){
+/*
+ * Created method to delete contact
+ */
+	public void deleteContact() {
 		System.out.print("Enter contact's First Name you want to delete:");
-		 String searchName=input.next();
-		 for (Contact newPerson : contactList) {
-			 if(newPerson.getFirst_Name().equals(searchName)){
-				 contactList.remove(newPerson);
-				 System.out.println("Contact deleted");
-	                break;
-			 }
-			 else {
-	                System.out.println("Contact not found with this name");
-			 }
-		 }
+		String searchName = input.next();
+		for (Contact newPerson : contactList) {
+			if (newPerson.getFirst_Name().equals(searchName)) {
+				contactList.remove(newPerson);
+				System.out.println("Contact deleted");
+				break;
+			} else {
+				System.out.println("Contact not found with this name");
+			}
+		}
 	}
+
 	public String toString() {
 		return "contactList= " + contactList;
 	}
