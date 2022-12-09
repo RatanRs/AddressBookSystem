@@ -66,8 +66,8 @@ public class Contact {
 		return zip;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setZip(int string) {
+		this.zip = string;
 	}
 
 	public String getPhone_Number() {
