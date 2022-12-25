@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  */
 public class AddressBook {
-	List<Contact> contactList = new ArrayList<>();
+	static List<Contact> contactList = new ArrayList<>();
 	HashMap<String, AddressBook> addressBooks = new HashMap<>();
 	Scanner inputContact = new Scanner(System.in);
 	Contact newPerson = new Contact();
@@ -19,34 +19,37 @@ public class AddressBook {
 	/*
 	 * Created Method To add new Contact details
 	 */
-	public void getContact() {
-		System.out.print("Enter the number of contact you want to save:");
-		int numberOfContact = inputContact.nextInt();
-		for (int i = 1; i <= numberOfContact; i++) {
-			System.out.println("Enter the details of contact =>");
-			Contact contact = new Contact();
-			System.out.print("Enter first name:");
-			contact.setFirst_Name(inputContact.next());
-			System.out.print("Enter last name:");
-			contact.setLast_Name(inputContact.next());
-			System.out.print("Enter address:");
-			contact.setAddress(inputContact.next());
-			System.out.print("Enter city:");
-			contact.setCity(inputContact.next());
-			System.out.print("Enter state:");
-			contact.setState(inputContact.next());
-			System.out.print("Enter zipcode:");
-			contact.setZip(inputContact.nextInt());
-			System.out.print("Enter phone number:");
-			contact.setPhone_Number(inputContact.next());
-			System.out.print("Enter email:");
-			contact.setEmail(inputContact.next());
-			contactList.add(contact);
-			System.out.println();
-			System.out.println("Contact added");
-		}
-
-	}
+	public void addContact() {
+        System.out.println("Enter the details of contact =>");
+        Contact contact = new Contact();
+        System.out.println("Enter person first name: ");
+        contact.setFirst_Name(inputContact.next());
+        String result = contact.getFirst_Name();
+        boolean flag = checkDuplicate(result);
+        if (flag) {
+            System.out.println("Person is already exist");
+        } else {
+            System.out.print("Enter first name:");
+            contact.setFirst_Name(inputContact.next());
+            System.out.print("Enter last name:");
+            contact.setFirst_Name(inputContact.next());
+            System.out.print("Enter address:");
+            contact.setAddress(inputContact.next());
+            System.out.print("Enter city:");
+            contact.setCity(inputContact.next());
+            System.out.print("Enter state:");
+            contact.setState(inputContact.next());
+            System.out.print("Enter zipcode:");
+            contact.setZip(inputContact.nextInt());
+            System.out.print("Enter phone number:");
+            contact.setPhone_Number(inputContact.next());
+            System.out.print("Enter email:");
+            contact.setEmail(inputContact.next());
+            contactList.add(contact);
+            System.out.println();
+            System.out.println("Contact added");
+        }
+    }
 
 	/**
 	 * Created method to edit contact details
@@ -93,6 +96,16 @@ public class AddressBook {
 			}
 		}
 	}
+	  public static boolean checkDuplicate(String firstname) {
+	        int flag = 0;
+	        for (Contact contact :  contactList) {
+	            if (contact.getFirst_Name().equals(firstname)) {
+	                flag = 1;
+	                break;
+	            }
+	        }
+	        return flag == 1;
+	    }
 
 	public String toString() {
 		return "contactList= " + contactList;
