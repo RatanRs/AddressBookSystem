@@ -21,7 +21,7 @@ public class AddressBookMain {
 	        AddressBook addressBook = new AddressBook();
 	        int ch;
 	        do {
-	            System.out.println("1.Add AddressBook\t2.Display all addressBooks\t3.Search by city 4\t4.Search by state\t5.Add contact in AddressBook ");
+	            System.out.println("1.Add AddressBook\t2.Display all addressBooks\t3.Search by city 4\t4.Search by state\n5.Add contact in AddressBook\t6.Count Contacts ");
 	            ch = scanner.nextInt();
 	            switch (ch) {
 	                case 1:
@@ -39,43 +39,53 @@ public class AddressBookMain {
 	                case 3:
 	                    System.out.println("Enter AddressBook name : ");
 	                    String addBookName = scanner.next();
-	                    if (addressBookHashMap.containsKey(addBookName)){
+	                    if (addressBookHashMap.containsKey(addBookName)) {
 	                        System.out.println("Enter city name : ");
 	                        String cityName = scanner.next();
 	                        addressBook = addressBookHashMap.get(addBookName);
 	                        addressBook.viewPersonByCity(cityName);
-	                    }else {
+	                    } else {
 	                        System.out.println("AddressBook not found.");
 	                    }
 	                    break;
 	                case 4:
 	                    System.out.println("Enter AddressBook name : ");
 	                    String addBookName1 = scanner.next();
-	                    if (addressBookHashMap.containsKey(addBookName1)){
+	                    if (addressBookHashMap.containsKey(addBookName1)) {
 	                        System.out.println("Enter state name : ");
 	                        String stateName = scanner.next();
 	                        addressBook = addressBookHashMap.get(addBookName1);
 	                        addressBook.viewPersonByCity(stateName);
 	                        addressBook.printHashMap();
 
-	                    }else {
+	                    } else {
 	                        System.out.println("AddressBook not found.");
 	                    }
 	                case 5:
 	                    System.out.println("Enter addressBook name to add contact : ");
 	                    String searchName1 = scanner.next();
-	                    if (addressBookHashMap.containsKey(searchName1)){
+	                    if (addressBookHashMap.containsKey(searchName1)) {
 	                        addressBook = addressBookHashMap.get(searchName1);
 	                        addressBook.addContact();
 
+	                    } else {
+	                        System.out.println("AddressBook not exists.");
+	                    }
+	                    break;
+	                case 6:
+	                    System.out.println("Enter AddressBook name : ");
+	                    addBookName1 = scanner.next();
+	                    if (addressBookHashMap.containsKey(addBookName1)) {
+	                        addressBook = addressBookHashMap.get(addBookName1);
+	                        long count = addressBook.getCount();
+	                        System.out.println(count);
 	                    }
 	                    else {
 	                        System.out.println("AddressBook not exists.");
 	                    }
 	                    break;
-	                case 6:
 
 	            }
-	        }while (ch != 0) ;
+	        } while (ch != 0);
 	    }
 	}
