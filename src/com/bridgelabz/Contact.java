@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.Objects;
+
 /***
  * 
  * @author Admin
@@ -16,6 +18,7 @@ public class Contact {
 	private int zip;
 	private String phone_Number;
 	private String email;
+	private Object firstName;
 
 	/***
 	 * 
@@ -92,5 +95,18 @@ public class Contact {
 				+ ", \ncity=" + city + ", \nstate=" + state + ", \nzip=" + zip + ", \nphone_Number=" + phone_Number
 				+ ", \nemail=" + email + "]";
 	}
+	 @Override
+	    public boolean equals(Object o) {
+	        if (this == o) return true;
+	        if (o == null || getClass() != o.getClass()) return false;
+	        Contact contact = (Contact) o;
+	        return Objects.equals(firstName, contact.firstName);
+	    }
 
-}
+	    @Override
+	    public int hashCode() {
+	        return Objects.hash(firstName);
+	    }
+	}
+
+

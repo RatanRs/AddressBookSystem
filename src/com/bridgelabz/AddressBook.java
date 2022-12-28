@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 /***
  * 
@@ -105,6 +106,25 @@ public class AddressBook {
 	            }
 	        }
 	        return flag == 1;
+	    }
+	  public void searchNameByStateAndCity(){
+	        System.out.println("Enter name of state : ");
+	        String stateName = inputContact.next();
+	        contactList.stream().filter(c->c.getCity()==stateName).forEach(x-> System.out.println(x));
+	    }
+
+	    public void viewPersonByCity(String cityName) {
+	        Predicate<Contact> contactPredicate = t->t.getCity().equals(cityName);
+	        if (contactList.stream().filter(contactPredicate).equals(true)){
+	            contactList.stream().filter(contactPredicate).forEach(x-> System.out.println(x));
+	        }else
+	            System.out.println("Not exists.");
+
+	    }
+	    public void viewPersonByState(String stateName){
+
+	        Predicate<Contact> contactPredicate = c->c.getState().equals(stateName);
+	        contactList.stream().filter(contactPredicate).forEach(x-> System.out.println(x));
 	    }
 
 	public String toString() {
