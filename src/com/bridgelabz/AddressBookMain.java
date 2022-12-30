@@ -21,7 +21,13 @@ public class AddressBookMain {
 	        AddressBook addressBook = new AddressBook();
 	        int ch;
 	        do {
-	            System.out.println("1.Add AddressBook\t2.Display all addressBooks\t3.Search by city 4\t4.Search by state\n5.Add contact in AddressBook\t6.Count Contacts ");
+	            System.out.println("1.Add AddressBook\t" +
+	                    "2.Display all addressBooks\t" +
+	                    "3.Search by city 4\t" +
+	                    "4.Search by state\n " +
+	                    "5.Add contact in AddressBook\t" +
+	                    "6.Count Contacts\t" +
+	                    "7.Sort Entries in AddressBook alphabetically ");
 	            ch = scanner.nextInt();
 	            switch (ch) {
 	                case 1:
@@ -79,9 +85,18 @@ public class AddressBookMain {
 	                        addressBook = addressBookHashMap.get(addBookName1);
 	                        long count = addressBook.getCount();
 	                        System.out.println(count);
-	                    }
-	                    else {
+	                    } else {
 	                        System.out.println("AddressBook not exists.");
+	                    }
+	                    break;
+	                case 7:
+	                    System.out.println("Enter AddressBook name : ");
+	                    addBookName1 = scanner.next();
+	                    if (addressBookHashMap.containsKey(addBookName1)) {
+	                        addressBook = addressBookHashMap.get(addBookName1);
+	                        addressBook.sortContact();
+	                    } else {
+	                        System.out.println("AddressBook not found.");
 	                    }
 	                    break;
 
