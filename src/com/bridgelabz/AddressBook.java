@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
@@ -169,6 +170,11 @@ public class AddressBook {
                 break;
         }
         return count;
+    }
+
+    void sortContact() {
+        Comparator<Contact> contactComparator = (a, b) -> a.compareTo(b);
+        contactList.stream().sorted(contactComparator).forEach(x -> System.out.println(x));
     }
 
     public String toString() {
