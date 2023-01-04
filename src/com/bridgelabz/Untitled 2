@@ -1,0 +1,2 @@
+contactList= [
+Contact{firstName='ratan', lastName='kumar', address='ring road', city='belgavi', state='karnataka', zipCode='126112', phoneNumber='9999999999', email='ratankumar@gmail.com'}]
