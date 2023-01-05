@@ -1,2 +1,2 @@
 contactList= [
-Contact{firstName='ramu', lastName='jhgyer', address='ewhg', city='werhjger', state='ewrhgerw', zipCode='78474', phoneNumber='3776376', email='fjhger'}]
+Contact{firstName='sita', lastName='ram', address='dfhghr', city='rjhgghr', state='hgrhgrt', zipCode='457565', phoneNumber='874874', email='jhgtrg'}]
