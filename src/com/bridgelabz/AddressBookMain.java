@@ -148,5 +148,19 @@ public class AddressBookMain {
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
+	        Path json= Paths.get("E:\\RFP229\\AddressBook\\src\\com\\bridgelabz\\AddressBookjson.json");
+	        try {
+	            Files.deleteIfExists(json);
+	            Files.write(json,
+	                    addressBookHashMap.keySet().stream().map(key -> addressBookHashMap.get(key).toString()).collect(Collectors.toList()),
+	                    StandardOpenOption.CREATE);
+
+	            List<String> readAllLines = Files.readAllLines(json);
+	            readAllLines.stream().forEach(line -> System.out.println(line));
+	            
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
 	    }
 	}
