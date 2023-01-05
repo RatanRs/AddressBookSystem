@@ -120,7 +120,7 @@ public class AddressBookMain {
 
 	            }
 	        } while (ch != 0);
-	        Path path = Paths.get("E:\\RFP229\\AddressBook\\src\\com\\bridgelabz\\United.txt");
+	        Path path = Paths.get("E:\\RFP229\\AddressBook\\src\\com\\bridgelabz\\AddressBookTxt.txt");
 	        try {
 	            Files.deleteIfExists(path);
 	            Files.write(path,
@@ -129,6 +129,21 @@ public class AddressBookMain {
 
 	            List<String> readAllLines = Files.readAllLines(path);
 	            readAllLines.stream().forEach(line -> System.out.println(line));
+	            
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	        Path Csv = Paths.get("E:\\RFP229\\AddressBook\\src\\com\\bridgelabz\\AddressBookCsv.csv");
+	        try {
+	            Files.deleteIfExists(Csv);
+	            Files.write(Csv,
+	                    addressBookHashMap.keySet().stream().map(key -> addressBookHashMap.get(key).toString()).collect(Collectors.toList()),
+	                    StandardOpenOption.CREATE);
+
+	            List<String> readAllLines = Files.readAllLines(Csv);
+	            readAllLines.stream().forEach(line -> System.out.println(line));
+	            
 
 	        } catch (IOException e) {
 	            e.printStackTrace();
